@@ -43,14 +43,15 @@ export const App = () => {
   } = getQuoteHook()
 
   if (error) {
-    return <div id="error">{error}</div>
+    const errorMessage = "Oops, looks like the quote machine is taking a break. Don't worry, it's not personal. Maybe it's off finding some inspiration, or perhaps it just needs a good cup of coffee. Hang in there, it'll be back with more inspiring quotes before you know it!"
+    return <div id="error">{errorMessage}</div>
   }
 
   return (
     <div id="app-container">
       <QuoteBox>
-        <Text text={quote} />
-        <Author author={author} />
+        <Text text={quote || "..."} />
+        <Author author={author || "..."} />
         <NewQuote disabled={isLoading} onClick={rerun} />
         <TweetQuote quote={quote} author={author} />
       </QuoteBox>

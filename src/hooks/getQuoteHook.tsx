@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useLayoutEffect, useState } from 'react'
 
 interface Quote {
   content: String
@@ -29,7 +29,7 @@ const getQuoteHook = () => {
     }
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     fetchQuote()
   }, [])
 
