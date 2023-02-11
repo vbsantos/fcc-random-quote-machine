@@ -26,9 +26,10 @@ const NewQuote = ({ onClick, disabled }: { onClick: MouseEventHandler<HTMLButton
   )
 }
 
-const TweetQuote = ({ onClick, disabled }: { onClick: MouseEventHandler<HTMLButtonElement>, disabled: boolean }) => {
+const TweetQuote = ({ quote, author }: { quote: String, author: String }) => {
+  const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote}" - ${author}`)}`
   return (
-    <button id="tweet-quote" onClick={onClick} disabled={disabled}>Tweet</button>
+    <a id="tweet-quote" href={tweetUrl} target="_blank">Tweet</a>
   )
 }
 
@@ -41,11 +42,6 @@ export const App = () => {
     rerun: MouseEventHandler<HTMLButtonElement>
   } = getQuoteHook()
 
-  const tweetQuoteOnNewTab = (quote: String) => {
-    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(`"${quote}" - ${author}`)}`
-    window.open(tweetUrl, '_blank')
-  }
-
   if (error) {
     return <div id="error">{error}</div>
   }
@@ -56,7 +52,7 @@ export const App = () => {
         <Text text={quote} />
         <Author author={author} />
         <NewQuote disabled={isLoading} onClick={rerun} />
-        <TweetQuote disabled={isLoading} onClick={() => tweetQuoteOnNewTab(quote)} />
+        <TweetQuote quote={quote} author={author} />
       </QuoteBox>
     </div>
   )

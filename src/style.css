@@ -34,6 +34,9 @@ body {
 
 #new-quote,
 #tweet-quote {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  text-decoration: none;
   background-color: #1abc9c;
   border: none;
   color: #ffffff;
@@ -42,7 +45,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
-
 }
 
 #new-quote:hover,
