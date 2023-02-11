@@ -1,6 +1,6 @@
 # FreeCodeCamp - Front End Development Libraries Course
 
-![project-screenshot](./assets/sample.png "All tests passed!")
+![project-screenshot](./assets/project-screenshot.png "All tests passed!")
 
 ## Certification Project - Build a Random Quote Machine
 
